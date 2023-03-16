@@ -5,6 +5,8 @@ import styles from '@/styles/Home.module.css'
 import ConnectWallet from "./components/ConnectWallet"
 import { AImodel } from './components/AImodel'
 import { Notifications } from './components/Notifications'
+import NotificationsPopover from './components/NotificationsPopover'
+import AccountPopover from './components/AccountPopover'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +24,8 @@ export default function Home() {
       <ConnectWallet/>
       <AImodel/>
       <Notifications/>
+      <NotificationsPopover/>
+      <AccountPopover/>
 
 
 
