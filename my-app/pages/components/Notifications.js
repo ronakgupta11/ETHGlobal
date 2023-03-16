@@ -2,7 +2,7 @@ import { EmbedSDK } from "@pushprotocol/uiembed";
 import React from 'react'
 import { useEffect } from "react";
 
-export const Notifications = () => {
+export default function Notifications(){
     const account = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
     useEffect(() => {
         if (account) { // 'your connected wallet address'

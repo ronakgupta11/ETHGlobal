@@ -5,7 +5,7 @@ const configuration = new Configuration({
   });
 const openai = new OpenAIApi(configuration);
 
-export const AImodel = () => {
+export default function AImodel(){
 
 async function generate(){
 if (!configuration.apiKey) {
