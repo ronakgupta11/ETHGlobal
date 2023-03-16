@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import ConnectWallet from "./components/ConnectWallet"
+import { AImodel } from './components/AImodel'
+import { Notifications } from './components/Notifications'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,6 +20,8 @@ export default function Home() {
       <main className={styles.main}>
 
       <ConnectWallet/>
+      <AImodel/>
+      <Notifications/>
 
 
 

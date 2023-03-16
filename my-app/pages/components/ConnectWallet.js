@@ -26,10 +26,13 @@ export default function ConnectWallet() {
     Dialog Content
   </DialogContent>
   <DialogActions>
+    <Button variant='contained'>
+
     <ConnectButton/>
+    </Button>
   </DialogActions>
   <DialogActions>
-    <Button onClick={() => connectIntmax()} color="primary">
+    <Button variant='contained' onClick={() => connectIntmax()} color="primary">
       Sign Up
     </Button>
   </DialogActions>
