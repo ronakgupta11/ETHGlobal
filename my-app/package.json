@@ -14,7 +14,7 @@
     "@faker-js/faker": "^7.6.0",
     "@iconify/react": "^4.1.0",
     "@mui/material": "^5.11.12",
-    "@pushprotocol/restapi": "^0.8.1",
+    "@pushprotocol/restapi": "^0.8.2",
     "@pushprotocol/uiembed": "^0.2.0",
     "@rainbow-me/rainbowkit": "^0.12.0",
     "change-case": "^4.1.2",
