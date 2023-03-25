@@ -7,6 +7,8 @@ import AImodel  from '../components/AImodel'
 import  Notifications  from '../components/Notifications'
 import NotificationsPopover from '../components/NotificationsPopover'
 import AccountPopover from '../components/AccountPopover'
+import { Upload } from '@/components/Upload'
+// import * as fs from "fs"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +28,7 @@ export default function Home() {
       <Notifications/>
       <NotificationsPopover/>
       <AccountPopover/>
+      <Upload/>
 
 
 
