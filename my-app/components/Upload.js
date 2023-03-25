@@ -1,10 +1,9 @@
 import React from 'react'
 import * as pinataSDK from "@pinata/sdk";
-import * as fs from "fs"
 import { useState } from "react";
 
 import { BigNumber } from "ethers";
-import {abi,SHOP_CONTRACT_ADDRESS} from "../constants/index.js"
+import {abi,contractAddress} from "../constants/index.js"
 
 const pinata = new pinataSDK('96f029350cf8f6076154', 'fb9e999ebb31a98d69f3d6464af7aaa333e4697207f36f79ec71659094c69c98');
 
@@ -86,8 +85,13 @@ export const Upload = () => {
                     </div>
                 
                     <div>
-                        <label for ="course-file">upload course banner:    </label>
-                        <input onChange={handleImage} className="input-area" type="file" id="product-image"></input>
+                        <label className= " block"for ="course-file"><span className='sr-only'>Choose Course banner</span></label>
+                        <input onChange={handleImage} className="block w-full text-sm text-slate-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-violet-700
+      hover:file:bg-violet-100" type="file" id="product-image"></input>
                     </div>
 
                     

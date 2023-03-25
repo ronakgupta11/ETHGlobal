@@ -7,6 +7,12 @@ import {
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import { AppBar } from '../components/AppBar';
+import { ContentContainer } from '../components/ContentContainer';
+import { Footer } from '../components/Footer';
+require('../styles/globals.css');
+import Head from "next/head";
+
 
 export default function App({ Component, pageProps }) {
   const { chains, provider } = configureChains(
@@ -26,11 +32,27 @@ export default function App({ Component, pageProps }) {
     connectors,
     provider
   })
-  return(
-    <WagmiConfig client={wagmiClient}>
+
+  return (
+    <>
+      <Head>
+        <title>Template App</title>
+      </Head>
+
+
+        <div className="flex flex-col h-screen">
+
+          <AppBar/>
+          <ContentContainer>
+          <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
       <Component {...pageProps} />
       </RainbowKitProvider>
-    </WagmiConfig>
-  );
+      </WagmiConfig>
+          </ContentContainer>
+          <Footer/>
+        </div>
+
+    </>
+);
 }

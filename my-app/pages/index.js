@@ -8,6 +8,10 @@ import  Notifications  from '../components/Notifications'
 import NotificationsPopover from '../components/NotificationsPopover'
 import AccountPopover from '../components/AccountPopover'
 import { Upload } from '@/components/Upload'
+import { HomeView } from "../views";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+
 // import * as fs from "fs"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,18 +25,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
 
-      <ConnectWallet/>
+
+      {/* <ConnectWallet/>
       <AImodel/>
       <Notifications/>
       <NotificationsPopover/>
       <AccountPopover/>
-      <Upload/>
+      <Upload/> */}
 
 
-
-      </main>
+<ConnectButton className="btn btn-ghost mr-4"/>
+<HomeView />
     </>
   )
 }
