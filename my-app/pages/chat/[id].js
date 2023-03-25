@@ -1,17 +1,18 @@
 
 import Head from "next/head"
-import { CandyMachineView } from "../views"
+import { ChatRoomView } from "../../views"
 
-const CandyMachine = (props) => {
+const ChatRoom = (props) => {
   return (
     <div>
       <Head>
         <title>Gari vNFT</title>
         <meta name="description" content="Basic Functionality" />
       </Head>
-      <CandyMachineView />
+      <p>1</p>
+      {/* <ChatRoomView /> */}
     </div>
   )
 }
 
-export default CandyMachine
+export default ChatRoom

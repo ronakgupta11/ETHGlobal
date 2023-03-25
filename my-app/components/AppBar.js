@@ -105,8 +105,8 @@ export const AppBar  = (props) => {
             <Link href="/display" className="btn btn-ghost btn-sm rounded-btn">
               Explore VNFTs
             </Link>
-            <Link href="/candymachine" className="btn btn-ghost btn-sm rounded-btn">
-              MY VNFTs
+            <Link href="/chat" className="btn btn-ghost btn-sm rounded-btn">
+              Chat Rooms
             </Link>
             <Link href="/create" className="btn btn-ghost btn-sm rounded-btn">
               Create
