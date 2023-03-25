@@ -1,0 +1,21 @@
+type CourseCreated @entity(immutable: true) {
+  id: Bytes!
+  courseId: BigInt! # uint256
+  price: BigInt! # uint256
+  name: String! # string
+  description: String! # string
+  videoUrl: String! # string
+  imageUrl: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CoursePurchase @entity(immutable: true) {
+  id: Bytes!
+  buyer: Bytes! # address
+  courseId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
