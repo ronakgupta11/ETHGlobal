@@ -16,7 +16,7 @@ export const ChatRoomView = (props) => {
   const { data: _signer, isError, isLoading } = useSigner()
   const [pgpKey,setPgpKey] = useState(null);
   const [requests,setRequests] = useState([]);
-  const [groups,setGroups] = useState(null);
+  const [groups,setGroups] = useState([]);
   const user = props.user;
  
   useEffect(() => {
@@ -43,8 +43,10 @@ export const ChatRoomView = (props) => {
   }) 
     
       setRequests(requests);
-      setGroups(chats);
-      console.log(chats)
+      setGroups(chats.filter(obj => obj.groupInformation));
+      
+      
+      
     };
     fetchKey(user);
 
@@ -59,6 +61,40 @@ export const ChatRoomView = (props) => {
       clearInterval(intervalId);
     };
   }, [user,pgpKey]);
+
+  const groupsRendered = groups.map((g,i) => {
+    const id = g.groupInformation.chatId;
+    const name = g.groupInformation.groupName;
+    return(
+      <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md">
+      <Link className="m-auto " href={`/chat/${id}`}>{name}</Link>
+      </li>
+
+    )
+  })
+
+  const requestsRendered = requests.map((r,i)=>{
+    const id = r.groupInformation.chatId;
+    const name = r.groupInformation.name;
+    return(
+      <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md">
+            <p>{name}</p>
+            <button onClick={()=>approve(pgpKey,id)} className=" bg-base-100 m-2  btn btn-sm rounded-btn">approve</button>
+          </li>
+
+    )
+  })
+
+
+  async function approve(pgpDecryptedPvtKey,chatId){
+    const response = await PushAPI.chat.approve({
+      status: 'Approved', 
+      signer:_signer,
+      pgpPrivateKey: pgpDecryptedPvtKey,
+      env:"staging",
+      senderAddress : {chatId} // receiver's address or chatId of a group
+    });
+  }
   return (
     <div className="md:hero mx-auto p-4">
       <div className="md:hero-content flex flex-col">
@@ -73,10 +109,7 @@ export const ChatRoomView = (props) => {
 
           <p className="italic"> Group Requests</p>
           <ul>
-          <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md">
-            <p>chat group 1</p>
-            <button className=" bg-base-100 m-2  btn btn-sm rounded-btn">approve</button>
-          </li>
+          
           </ul>
           </div>}
           <div className="w-4/5 m-auto flex flex-col items-center">
@@ -84,7 +117,7 @@ export const ChatRoomView = (props) => {
               Your Chat Rooms
             </p>
             <ul>
-            <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md" ><Link className="m-auto " href="/chat/id">new room</Link></li>
+            {groupsRendered}
 
 
             </ul>
