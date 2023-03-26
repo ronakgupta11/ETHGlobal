@@ -5,7 +5,7 @@ import {
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
+import { mainnet, polygon, optimism, arbitrum,polygonMumbai } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
@@ -16,7 +16,7 @@ import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   const { chains, provider } = configureChains(
-    [mainnet, polygon, optimism, arbitrum],
+    [mainnet, polygon, optimism, arbitrum,polygonMumbai],
     [
       publicProvider()
     ]

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@pushprotocol/socket": "^0.4.2"
+  }
+}

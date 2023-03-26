@@ -1,7 +1,9 @@
 
 import { noCase } from 'change-case';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAccount } from "wagmi";
+import * as PushAPI from "@pushprotocol/restapi";
 // @mui
 import {
   Box,
@@ -19,33 +21,30 @@ import {
   ListItemAvatar,
   ListItemButton,
 } from '@mui/material';
-// utils
-// import { fToNow } from '../../../utils/formatTime';
-// components
+
 import Iconify from './iconify';
 import Scrollbar from './scrollbar';
 
-// ----------------------------------------------------------------------
 
-const NOTIFICATIONS = [
-  {
-    id: 1,
-    title: 'Your order is placed',
-    description: 'waiting for shipping',
-    avatar: null,
-    type: 'order_placed',
 
-    isUnRead: true,
-  },
 
-];
+
+
+
+
 
 export default function NotificationsPopover() {
-  const [notifications, setNotifications] = useState(NOTIFICATIONS);
 
-  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
+  const [notifications, setNotifications] = useState([]);
+  const { address, isConnecting, isDisconnected } = useAccount()
+
+  // const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
+  const totalUnRead = 1;
 
   const [open, setOpen] = useState(null);
+
+
+
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -63,7 +62,31 @@ export default function NotificationsPopover() {
       }))
     );
   };
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      const res = await PushAPI.user.getFeeds({
+        user: `eip155:80001:${address}`, // user address in CAIP
+        env: 'staging',
+        
 
+      });
+
+    
+      setNotifications(res);
+      console.log(res);
+
+    };
+
+    // Fetch data every 5 seconds
+    const intervalId = setInterval(() => {
+      fetchNotifications();
+      
+    }, 3000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [notifications]);
   return (
     <>
       <IconButton color='inherit' onClick={handleOpen} sx={{ width: 40, height: 40 }}>
@@ -153,7 +176,7 @@ function NotificationItem({ notification }) {
   const {title } = renderContent(notification);
 
   return (
-    <ListItemButton
+    <ListItemButton className='flex items-center'
       sx={{
         py: 1.5,
         px: 2.5,
@@ -166,6 +189,7 @@ function NotificationItem({ notification }) {
       {/* <ListItemAvatar>
         <Avatar sx={{ bgcolor: 'background.neutral' }}>{avatar}</Avatar>
       </ListItemAvatar> */}
+      <img className='w-16 mr-4' src={notification.image}></img>
       <ListItemText
         primary={title}
         secondary={
@@ -194,7 +218,7 @@ function renderContent(notification) {
     <Typography variant="subtitle2">
       {notification.title}
       <Typography component="span" variant="body2" sx={{ color: 'text.secondary' }}>
-        &nbsp; {noCase(notification.description)}
+        &nbsp; {noCase(notification.message)}
       </Typography>
     </Typography>
   );

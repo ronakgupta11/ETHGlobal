@@ -1,9 +1,41 @@
 
 import { FetchChat } from "@/components/FetchChat"
 import Head from "next/head"
-
+import * as PushAPI from "@pushprotocol/restapi";
+import { useSigner,useAccount } from 'wagmi'
+import {
+    createSocketConnection,
+    EVENTS
+  } from '@pushprotocol/socket';
 
 const ChatRoom = (props) => {
+  const { address, isConnecting, isDisconnected } = useAccount()
+
+  const { data: _signer } = useSigner()
+  const chatId = props.chatId;
+  const [user,setUser ]=useState(null);
+  const [decryptedPGPKey,setDecryptedPGPKey] = useState(null);
+  const [message,setMessage] = useState("");
+
+
+async function sendMessage(decryptedPGPKey){
+
+
+
+
+
+
+const response = await PushAPI.chat.send({
+messageContent: {message},
+messageType: 'Text', // can be "Text" | "Image" | "File" | "GIF" 
+receiverAddress: `eip155:${chatId}`,
+signer: _signer,
+pgpPrivateKey: decryptedPGPKey,
+env: 'staging',
+});
+  }
+
+
   return (
     <div>
       <Head>
