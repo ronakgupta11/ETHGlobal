@@ -13,7 +13,7 @@ export const FetchCourses = () => {
     const arr = courses.map((c,id)=>
     {
         return(
-            <CourseCard name = {c.name} image = {c.imageUrl} key = {id} id = {c.courseId}/>
+            <CourseCard name = {c.name} image = {c.imageUrl} key = {id} id = {c.courseId} price = {c.price}/>
         )
     })
 

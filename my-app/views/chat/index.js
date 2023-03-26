@@ -75,7 +75,7 @@ export const ChatRoomView = (props) => {
 
   const requestsRendered = requests.map((r,i)=>{
     const id = r.groupInformation.chatId;
-    const name = r.groupInformation.name;
+    const name = r.groupInformation.groupName;
     return(
       <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md">
             <p>{name}</p>
@@ -92,7 +92,7 @@ export const ChatRoomView = (props) => {
       signer:_signer,
       pgpPrivateKey: pgpDecryptedPvtKey,
       env:"staging",
-      senderAddress : {chatId} // receiver's address or chatId of a group
+      senderAddress : `${chatId}` // receiver's address or chatId of a group
     });
   }
   return (
@@ -109,7 +109,7 @@ export const ChatRoomView = (props) => {
 
           <p className="italic"> Group Requests</p>
           <ul>
-          
+          {requestsRendered}
           </ul>
           </div>}
           <div className="w-4/5 m-auto flex flex-col items-center">

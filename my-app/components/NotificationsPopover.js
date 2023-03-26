@@ -30,12 +30,19 @@ import Scrollbar from './scrollbar';
 
 
 
-
+const NOTIFICATIONS =[
+  {
+    id:0,
+    image:"https://gateway.pinata.cloud/ipfs/QmQdoK32YjZ4hX7d94BaqwmLZVqa4PqWb9sHsTdUxoEdbE?_gl=1*1e8bkek*_ga*NDkwMmRkZjktOTdhNC00OTc4LWJmN2MtOWE3NDA4YWEwZjJk*_ga_5RMPXG14TE*MTY3OTg0MDU0NS4xMy4wLjE2Nzk4NDA1NDguNTcuMC4w",
+    title:"New Course Update",
+    message:"Data structure",
+  }
+]
 
 
 export default function NotificationsPopover() {
 
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState(NOTIFICATIONS);
   const { address, isConnecting, isDisconnected } = useAccount()
 
   // const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
@@ -72,7 +79,7 @@ export default function NotificationsPopover() {
       });
 
     
-      setNotifications(res);
+      // setNotifications(res);
       console.log(res);
 
     };
