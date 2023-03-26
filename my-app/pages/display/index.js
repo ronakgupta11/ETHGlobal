@@ -1,6 +1,6 @@
 
 import Head from "next/head"
-import { DisplayView } from "../views"
+import { DisplayView } from "../../views"
 
 const Display = (props) => {
   return (

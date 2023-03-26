@@ -1,6 +1,7 @@
 
+import { FetchChat } from "@/components/FetchChat"
 import Head from "next/head"
-import { ChatRoomView } from "../../views"
+
 
 const ChatRoom = (props) => {
   return (
@@ -9,8 +10,19 @@ const ChatRoom = (props) => {
         <title>Gari vNFT</title>
         <meta name="description" content="Basic Functionality" />
       </Head>
-      <p>1</p>
+      
       {/* <ChatRoomView /> */}
+      <div className="bg-primary w-96 m-auto  mt-10 mb-20 pb-24 flex flex-col items-center p-4 ">
+        <p> 
+        Group name
+        {/* render group name here using clicked link */}
+        </p>
+        {/* give props in chat id to fetch chat  */}
+        <FetchChat/>
+        <input  className=" text-black placeholder:italic placeholder:text-slate-400 block bg-white w-full  rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" type="text" id="message" placeholder="send..."></input>
+        <button className="bg-base-100 rounded-md p-2 mt-4">Send</button>
+        
+      </div>
     </div>
   )
 }
