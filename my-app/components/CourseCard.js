@@ -18,8 +18,8 @@ export const CourseCard = (props) => {
     </Link>
     <div className='flex '>
 
-    <button onClick ={() => handleEnroll(props.id)} className="bg-base-100 rounded-md p-2 m-2">Enroll</button>
-    <button className="bg-base-100 rounded-md p-2 m-2">Open</button>
+    <button  onClick ={() => handleEnroll(props.id)} className="bg-base-100 m-3 btn btn-sm rounded-btn">Enroll</button>
+    <button className="bg-base-100 m-3 btn btn-sm rounded-btn">Open</button>
     </div>
     
 </div>

@@ -20,7 +20,7 @@ const ChatRoom = (props) => {
         {/* give props in chat id to fetch chat  */}
         <FetchChat/>
         <input  className=" text-black placeholder:italic placeholder:text-slate-400 block bg-white w-full  rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" type="text" id="message" placeholder="send..."></input>
-        <button className="bg-base-100 rounded-md p-2 mt-4">Send</button>
+        <button className=" mt-4 bg-base-100 m-3 btn btn-sm rounded-btn">Send</button>
         
       </div>
     </div>

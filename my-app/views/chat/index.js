@@ -19,7 +19,7 @@ export const ChatRoomView = ({}) => {
           <ul>
           <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md">
             <p>chat group 1</p>
-            <button className="bg-base-100 rounded-md p-2">approve</button>
+            <button className=" bg-base-100 m-2  btn btn-sm rounded-btn">approve</button>
           </li>
           </ul>
           </div>
@@ -28,7 +28,7 @@ export const ChatRoomView = ({}) => {
               Your Chat Rooms
             </p>
             <ul>
-            <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md" ><Link className="m-auto" href="/chat/id">new room</Link></li>
+            <li className="flex items-center m-4 bg-primary w-96 justify-between p-5 rounded-md" ><Link className="m-auto " href="/chat/id">new room</Link></li>
 
 
             </ul>
