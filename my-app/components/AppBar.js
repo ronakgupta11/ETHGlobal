@@ -103,13 +103,13 @@ export const AppBar  = (props) => {
               Home
             </Link>
             <Link href="/display" className="btn btn-ghost btn-sm rounded-btn">
-              Explore VNFTs
+              Explore CourSes
             </Link>
             <Link href="/chat" className="btn btn-ghost btn-sm rounded-btn">
               Chat Rooms
             </Link>
             <Link href="/create" className="btn btn-ghost btn-sm rounded-btn">
-              Create
+              Create Course
             </Link>
             {/* <NotificationsPopover/> */}
 

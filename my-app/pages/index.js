@@ -32,9 +32,12 @@ export default function Home() {
       <AccountPopover/>
       <Upload/> */}
 
+<div className='flex flex-col items-center'>
 
-<ConnectButton className="btn btn-ghost mr-4"/>
+
 <HomeView />
+<ConnectButton className="btn btn-ghost mr-4"/>
+</div>
     </>
   )
 }

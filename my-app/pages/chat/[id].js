@@ -7,6 +7,7 @@ import {
     createSocketConnection,
     EVENTS
   } from '@pushprotocol/socket';
+  import { useState } from "react";
 
 const ChatRoom = (props) => {
   const { address, isConnecting, isDisconnected } = useAccount()

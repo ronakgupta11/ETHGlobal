@@ -21,17 +21,17 @@ export const ContentContainer = (props) => {
           </li>
           <li>
             <Link href="/display">
-              Explore vNFT
+              Explore Courses
             </Link>
           </li>
           <li>
-            <Link href="/candymachine">
-              My vNFT
+            <Link href="/chat">
+              Chat Room
             </Link>
           </li>
           <li>
             <Link href="/create">
-              Create
+              Create Course
             </Link>
           </li>
         </ul>
