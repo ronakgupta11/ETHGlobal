@@ -18,6 +18,7 @@
     "@mui/material": "^5.11.12",
     "@pinata/sdk": "^2.1.0",
     "@pushprotocol/restapi": "^0.8.2",
+    "@pushprotocol/socket": "^0.4.2",
     "@pushprotocol/uiembed": "^0.2.0",
     "@rainbow-me/rainbowkit": "^0.12.0",
     "@tailwindcss/typography": "^0.5.9",
