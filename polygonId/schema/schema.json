@@ -3,8 +3,8 @@
     "type": "object",
     "$metadata": {
       "uris": {
-        "jsonLdContext": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld",
-        "jsonSchema": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v2.json"
+        "jsonLdContext": "https://s3.eu-west-1.amazonaws.com/polygonid-schemas/bff6ca45-df11-4398-8bc0-a450f5082662.json-ld",
+        "jsonSchema": "https://github.com/ronakgupta11/ETHGlobal/blob/main/polygonId/schema/schema.json"
       },
       "serialization": {
         "indexDataSlotA": "allowedInCourse",
